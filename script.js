@@ -177,7 +177,7 @@ function displayM3UFile(m3uText) {
             var info = line.split(',');
             var duration = info[0].substring(8);
             var title = info[1];
-            var logoUrl = extractLogoUrl(lines[i - 1]);
+            var logoUrl = extractLogoUrl(lines[i - 2]);
             var streamUrl = lines[i + 1];
 
             var card = document.createElement('div');
@@ -206,7 +206,7 @@ function extractLogoUrl(previousLine) {
     var logoUrl = '';
     var regex = /tvg-logo="([^"]+)"/;
     var match = previousLine.match(regex);
-
+    console.log(previousLine)
     if (match && match.length > 1) {
         logoUrl = match[1];
     }
